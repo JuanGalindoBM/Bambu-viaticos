@@ -1,0 +1,114 @@
+<div class="flex min-h-dvh">
+  <aside
+    class="hidden w-[248px] flex-none flex-col gap-8 border-r border-bb-surface-2 bg-bb-shell px-4 py-7 md:flex"
+  >
+    <div class="flex flex-col gap-2.5 px-3">
+      <bb-logo [width]="120" />
+      <span class="text-bb-badge font-bold tracking-bb-badge text-bb-green">
+        CONTROL DE VIÁTICOS
+      </span>
+    </div>
+
+    <nav aria-label="Principal" class="flex flex-col gap-1">
+      @for (item of navItems; track item.label) {
+        @if (item.route) {
+          <a
+            #rla="routerLinkActive"
+            [routerLink]="item.route"
+            routerLinkActive
+            [ariaCurrentWhenActive]="'page'"
+            [class]="
+              rla.isActive
+                ? 'flex min-h-bb-touch items-center gap-3 rounded-md bg-bb-green px-3 text-[15px] font-bold text-bb-on-green'
+                : 'flex min-h-bb-touch items-center gap-3 rounded-md px-3 text-[15px] text-bb-text-2 hover:bg-bb-shell-hover hover:text-bb-text'
+            "
+          >
+            <bb-icon [name]="item.icon" />
+            {{ item.label }}
+          </a>
+        } @else {
+          <span
+            aria-disabled="true"
+            class="flex min-h-bb-touch items-center gap-3 rounded-md px-3 text-[15px] text-bb-text-2"
+          >
+            <bb-icon [name]="item.icon" />
+            {{ item.label }}
+          </span>
+        }
+      }
+    </nav>
+
+    <div class="mt-auto flex flex-col gap-3 border-t border-bb-surface-2 px-3 pt-4">
+      <div class="flex items-center gap-3">
+        <bb-avatar [name]="userName()" />
+        <div class="flex min-w-0 flex-col gap-0.5">
+          <span class="text-sm font-bold">{{ userName() }}</span>
+          <span class="truncate text-xs text-bb-text-subtle">{{ userEmail() }}</span>
+        </div>
+      </div>
+      <!-- TODO: limpiar sesión/token al cerrar sesión lo agrega el spec de autenticación -->
+      <a
+        routerLink="/login"
+        class="flex min-h-bb-touch items-center gap-2.5 text-sm text-bb-text-muted hover:text-bb-green"
+      >
+        <bb-icon name="log-out" [size]="18" />
+        Cerrar sesión
+      </a>
+    </div>
+  </aside>
+
+  <div class="flex min-w-0 flex-1 flex-col">
+    <header
+      class="relative flex items-center justify-center gap-4 border-b border-bb-surface-2 px-4 pt-9 pb-3 md:justify-between md:px-10 md:py-5"
+    >
+      <bb-logo [width]="108" class="md:hidden" />
+      <span class="hidden text-sm text-bb-text-subtle md:block">{{ breadcrumb() }}</span>
+      <button
+        bb-icon-button
+        variant="ghost"
+        aria-label="Notificaciones"
+        class="absolute right-3 bottom-1.5 md:static md:border md:border-bb-border md:text-bb-text-2 md:hover:border-bb-green"
+      >
+        <bb-icon name="bell" />
+      </button>
+    </header>
+
+    <main
+      class="mx-auto flex w-full max-w-[1180px] flex-col gap-[22px] px-5 pt-6 pb-28 md:gap-8 md:p-10"
+    >
+      <router-outlet />
+    </main>
+  </div>
+
+  <nav
+    aria-label="Principal (móvil)"
+    class="bg-bb-shell border-bb-surface-2 fixed inset-x-0 bottom-0 z-10 grid grid-cols-4 border-t px-2 pt-2 pb-[calc(16px+env(safe-area-inset-bottom))] md:hidden"
+  >
+    @for (item of mobileTabItems; track item.label) {
+      @if (item.route) {
+        <a
+          #rla="routerLinkActive"
+          [routerLink]="item.route"
+          routerLinkActive
+          [ariaCurrentWhenActive]="'page'"
+          [class]="
+            rla.isActive
+              ? 'flex min-h-[52px] flex-col items-center justify-center gap-1 text-[11px] font-bold text-bb-green'
+              : 'flex min-h-[52px] flex-col items-center justify-center gap-1 text-[11px] text-bb-text-subtle'
+          "
+        >
+          <bb-icon [name]="item.icon" [size]="22" />
+          {{ item.label }}
+        </a>
+      } @else {
+        <span
+          aria-disabled="true"
+          class="flex min-h-[52px] flex-col items-center justify-center gap-1 text-[11px] text-bb-text-subtle"
+        >
+          <bb-icon [name]="item.icon" [size]="22" />
+          {{ item.label }}
+        </span>
+      }
+    }
+  </nav>
+</div>

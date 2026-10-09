@@ -1,0 +1,38 @@
+<div class="flex min-h-dvh flex-col md:flex-row md:flex-wrap">
+  <header class="flex justify-center px-6 pb-2 pt-10 md:hidden">
+    <bb-logo [width]="132" />
+  </header>
+
+  <aside
+    class="relative hidden overflow-hidden border-r border-bb-surface-2 bg-bb-black md:flex md:min-h-[420px] md:min-w-0 md:flex-1 md:basis-[520px] md:flex-col md:justify-between md:gap-12 md:p-14"
+  >
+    <img ngSrc="/img/fondo-auth.webp" fill alt="" class="object-cover" />
+
+    <bb-logo [width]="176" class="relative z-10" />
+
+    <div class="relative z-10 flex max-w-[460px] flex-col gap-5">
+      <bb-badge>HERRAMIENTA INTERNA</bb-badge>
+      <p class="m-0 text-bb-display leading-bb-tight font-bold">
+        Control de<br />
+        <span class="text-bb-green italic">Viáticos</span>
+      </p>
+      <div class="h-[3px] w-[72px] bg-bb-green"></div>
+      <p class="m-0 text-lg leading-normal text-bb-text-2">
+        Registra, comprueba y da seguimiento a tus gastos de viaje en un solo lugar.
+      </p>
+    </div>
+
+    <div class="relative z-10 flex flex-wrap justify-between gap-4 text-bb-xs text-bb-text-subtle">
+      <span>© 2026 Bambú Tech Services</span>
+      <span class="text-bb-green">v1.0</span>
+    </div>
+  </aside>
+
+  <main
+    class="flex flex-1 basis-[520px] items-start justify-center px-6 pt-10 pb-8 md:min-w-0 md:items-center md:py-14 md:px-6"
+  >
+    <div class="flex w-full max-w-bb-form flex-col gap-7 md:gap-8">
+      <router-outlet />
+    </div>
+  </main>
+</div>

@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "skills": {
+    "bambu-git-flow": {
+      "source": "Bambu-Developers/skills",
+      "sourceType": "github",
+      "skillPath": "bambu-git-flow/SKILL.md",
+      "computedHash": "6296498769ce1840b4770f0ee077ba3b11e3053ee156e7b8dd667f63886587c3"
+    },
+    "bambu-spec-define": {
+      "source": "Bambu-Developers/skills",
+      "sourceType": "github",
+      "skillPath": "bambu-spec-define/SKILL.md",
+      "computedHash": "1e550a63cc136f05a8dda04d93e195221682c1a932e0b8a0fa570c316b74cdca"
+    },
+    "bambu-spec-implement": {
+      "source": "Bambu-Developers/skills",
+      "sourceType": "github",
+      "skillPath": "bambu-spec-implement/SKILL.md",
+      "computedHash": "4764605c16f043de9fc7182447204fb8c606a9a0c27b62bc0afbd2d859932986"
+    }
+  }
+}

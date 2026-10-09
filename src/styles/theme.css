@@ -1,0 +1,58 @@
+/* Tema Bambú — traducción 1:1 de references/viaticos-bambu-kit/tokens/tokens.css
+   al @theme de Tailwind v4 (ver specs/SPEC-01-tema-tailwind-tokens-bambu.md).
+
+   Tokens del kit que NO se declaran aquí porque el default de Tailwind ya los cubre
+   con el mismo valor numérico:
+     --bb-space-1…14 (4/8/12/16/20/24/32/48/56px) → escala de spacing default (p-1 … p-14)
+     --bb-fs-body-lg 18px / --bb-fs-body 16px / --bb-fs-sm 14px → text-lg / text-base / text-sm
+     --bb-lh-body 1.5                                          → leading-normal
+     --bb-radius 6px / --bb-radius-lg 8px / --bb-radius-pill    → rounded-md / rounded-lg / rounded-full
+     breakpoint 768px del kit                                   → md:
+
+   Los tamaños custom van en rem (base 16px) para que escalen con el tamaño de fuente
+   del navegador — WCAG 2.1 AA, criterio 1.4.4. */
+
+@theme {
+  /* Tipografía — Sansation reemplaza el stack sans default de Tailwind */
+  --font-sans: 'Sansation', 'Trebuchet MS', 'Segoe UI', sans-serif;
+
+  /* Color */
+  --color-bb-black: #000000;
+  --color-bb-surface: #0d0d0d;
+  --color-bb-surface-2: #1f1f1f;
+  --color-bb-border: #333333;
+  --color-bb-border-subtle: #262626;
+  --color-bb-green: #00ff00;
+  --color-bb-green-hover: #5cff5c;
+  --color-bb-green-soft: #9cff9c;
+  --color-bb-focus-ring: rgba(0, 255, 0, 0.18);
+  --color-bb-text: #ffffff;
+  --color-bb-text-2: #cccccc;
+  --color-bb-text-muted: #b3b3b3;
+  --color-bb-text-subtle: #a6a6a6;
+  --color-bb-placeholder: #8a8a8a;
+  --color-bb-warning: #ffb27a;
+  --color-bb-caution: #ffd666;
+  --color-bb-on-green: #000000;
+
+  /* Agregados en SPEC 04: el único hex del kit sin token — el fondo del sidebar
+     y de la barra inferior del dashboard (`#0A0A0A` en app.css) y el hover de un
+     ítem de menú (`#141414`). bb-surface (#0D0D0D) es un valor distinto, no sirve. */
+  --color-bb-shell: #0a0a0a;
+  --color-bb-shell-hover: #141414;
+
+  /* Tamaños de fuente que no existen en la escala default */
+  --text-bb-display: 3.5rem; /* 56px */
+  --text-bb-h2: 2.125rem; /* 34px */
+  --text-bb-xs: 0.8125rem; /* 13px — distinto del text-xs default (12px) */
+  --text-bb-badge: 0.75rem; /* 12px */
+
+  /* leading-tight default es 1.25; tracking-widest default es .1em */
+  --leading-bb-tight: 1.1;
+  --tracking-bb-badge: 0.14em;
+
+  /* Medidas de control del kit */
+  --spacing-bb-control: 3.25rem; /* 52px — alto de inputs y botones */
+  --spacing-bb-touch: 2.75rem; /* 44px — touch target mínimo */
+  --container-bb-form: 26.25rem; /* 420px — ancho máximo de formulario */
+}
